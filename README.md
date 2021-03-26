@@ -1,4 +1,4 @@
-# Repo Title REPLACE
+# Send and Receive SMS
 <a href="http://dev.bandwidth.com"><img src="https://s3.amazonaws.com/bwdemos/BW-VMP.png"/></a>
 </div>
 
@@ -6,7 +6,7 @@
 
 <!-- TOC -->
 
-- [Repo Title REPLACE](#repo-title-replace)
+- [Send and Receive SMS](#send-and-receive-sms)
 - [Description](#description)
 - [Bandwidth](#bandwidth)
 - [Environmental Variables](#environmental-variables)
@@ -16,7 +16,15 @@
 <!-- /TOC -->
 
 # Description
-A short description of your sample app and its capabilities. 
+Using a tool capable of posting (Postman) post a json body to the apps endpoint `/messages` with a json body like:
+```json
+{
+  "to": "+19994444",
+  "text":"Hello World!"
+}
+```
+The application will text the number `+19994444` the words `Hello World!`.
+If you text your Bandwidth number you will see your text printed out to the logs.
 
 # Bandwidth
 
@@ -32,10 +40,8 @@ The sample app uses the below environmental variables.
 BANDWIDTH_ACCOUNT_ID                 // Your Bandwidth Account Id
 BANDWIDTH_USERNAME                   // Your Bandwidth API Token
 BANDWIDTH_PASSWORD                   // Your Bandwidth API Secret
-BANDWIDTH_PHONE_NUMBER                // Your The Bandwidth Phone Number
-BANDWIDTH_VOICE_APPLICATION_ID       // Your Voice Application Id created in the dashboard
 BANDWIDTH_MESSAGING_APPLICATION_ID   // Your Messaging Application Id created in the dashboard
-BASE_URL                             // Your public base url
+BANDWIDTH_PHONE_NUMBER               // Your Bandwidth phone number in E164 format
 PORT                                 // The port number you wish to run the sample on
 ```
 
@@ -44,8 +50,7 @@ PORT                                 // The port number you wish to run the samp
 For a detailed introduction to Bandwidth Callbacks see https://dev.bandwidth.com/guides/callbacks/callbacks.html
 
 Below are the callback paths:
-* `/callbacks/voiceCallback`
-* `<add other callbacks>`
+* `/callbacks/messageCallback`
 
 ## Ngrok
 
