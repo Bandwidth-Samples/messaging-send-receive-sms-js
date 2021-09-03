@@ -1,5 +1,5 @@
 {
-  "name": "messaging-send-recieve-sms",
+  "name": "messaging-send-receive-sms-js",
   "version": "1.0.0",
   "description": "Bandwidth sample app sending sms text messages",
   "main": "app.js",
