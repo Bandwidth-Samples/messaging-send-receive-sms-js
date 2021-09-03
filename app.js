@@ -1,7 +1,6 @@
-import pkg_bw from '@bandwidth/messaging';
+import { Client, ApiController } from '@bandwidth/messaging';
 import express from 'express';
 
-const { Client, ApiController } = pkg_bw;
 const app = express();
 app.use(express.json());
 
