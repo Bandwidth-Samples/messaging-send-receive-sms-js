@@ -68,7 +68,7 @@ app.post('/messages', async (req, res) => {
     });
 });
 
-app.post('/callbacks/messageCallback', async (req, res) => {
+app.post('/callbacks/outbound/message', async (req, res) => {
     const callback = req.body[0];
     res.sendStatus(200);
 

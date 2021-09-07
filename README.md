@@ -50,7 +50,7 @@ LOCAL_PORT                    # The port number you wish to run the sample on
 For a detailed introduction to Bandwidth Callbacks see https://dev.bandwidth.com/guides/callbacks/callbacks.html
 
 Below are the callback paths:
-* `/callbacks/messageCallback`
+* `/callbacks/outbound/message`
 
 ## Ngrok
 
