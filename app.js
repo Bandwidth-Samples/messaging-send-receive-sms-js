@@ -83,7 +83,7 @@ app.post('/callbacks/outbound/messaging/status', async (req, res) => {
             console.log(`For MMS and Group Messages, you will only receive this callback if you have enabled delivery receipts on MMS. `);
             break;
         default:
-            console.log(`Message type does not match endpoint. This endpoint is used for message status callbacks only.`)
+            console.log(`Message type does not match endpoint. This endpoint is used for message status callbacks only.`);
             break;
     }
 });
@@ -98,7 +98,7 @@ app.post('/callbacks/inbound/messaging', async (req, res) => {
             console.log(`${callback.message.text}`);
             break;
         default:
-            console.log(`Message type does not match endpoint. This endpoint is used for inbound messages only.\nOutbound message callbacks should be sent to /callbacks/outbound/messaging.`)
+            console.log(`Message type does not match endpoint. This endpoint is used for inbound messages only.\nOutbound message callbacks should be sent to /callbacks/outbound/messaging.`);
             break;
     }
 });
