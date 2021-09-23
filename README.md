@@ -16,7 +16,7 @@
 <!-- /TOC -->
 
 # Description
-Using a tool capable of making POST requests (Postman), send a POST request to the apps endpoint `/callbacks/outbound/messaging` with a json body like:
+Using a tool capable of making POST requests (Postman), send a POST request to the app's endpoint `/callbacks/outbound/messaging` with a json body like:
 ```json
 {
   "to": "+19199994444",
