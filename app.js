@@ -44,7 +44,7 @@ const client = new Client({
 // The controller is the main API to the SDK
 const controller = new ApiController(client);
 
-app.post('/messages', async (req, res) => {
+app.post('/callbacks/outbound/messaging', async (req, res) => {
 
     const to = req.body.to;
     const text = req.body.text;
@@ -68,15 +68,11 @@ app.post('/messages', async (req, res) => {
     });
 });
 
-app.post('/callbacks/outbound/message', async (req, res) => {
+app.post('/callbacks/outbound/messaging/status', async (req, res) => {
     const callback = req.body[0];
     res.sendStatus(200);
 
     switch (callback.type) {
-        case 'message-received':
-            console.log(`from: ${callback.message.from}, to ${callback.message.to}`);
-            console.log(`${callback.message.text}`);
-            break;
         case 'message-sending':
             console.log(`message-sending type is only for MMS`);
             break;
@@ -87,10 +83,24 @@ app.post('/callbacks/outbound/message', async (req, res) => {
             console.log(`For MMS and Group Messages, you will only receive this callback if you have enabled delivery receipts on MMS. `);
             break;
         default:
+            console.log(`Message type does not match endpoint. This endpoint is used for message status callbacks only.`);
             break;
     }
-})
+});
 
+app.post('/callbacks/inbound/messaging', async (req, res) => {
+    const callback = req.body[0];
+    res.sendStatus(200);
 
+    switch (callback.type) {
+        case 'message-received':
+            console.log(`from: ${callback.message.from}, to ${callback.message.to}`);
+            console.log(`${callback.message.text}`);
+            break;
+        default:
+            console.log(`Message type does not match endpoint. This endpoint is used for inbound messages only.\nOutbound message callbacks should be sent to /callbacks/outbound/messaging.`);
+            break;
+    }
+});
 
 app.listen(port);
