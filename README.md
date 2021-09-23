@@ -16,16 +16,19 @@
 <!-- /TOC -->
 
 # Description
-Using a tool capable of posting (Postman) post a json body to the apps endpoint `/messages` with a json body like:
+Using a tool capable of making POST requests (Postman), send a POST request to the apps endpoint `/callbacks/outbound/messaging` with a json body like:
 ```json
 {
-  "to": "+19994444",
+  "to": "+19199994444",
   "text":"Hello World!"
 }
 ```
-The application will text the number `+19994444` the words `Hello World!`.
+The application will text the number `+19199994444` the words `Hello World!`.
 If you text your Bandwidth number you will see your text printed out to the logs.
 
+The other two endpoints are used for handling inbound and outbound webhooks from Bandwidth. In order to use the correct endpoints, you must check the "Use multiple callback URLs" box on the application page in Dashboard. Then in Dashboard, set the INBOUND CALLBACK to `/callbacks/inbound/messaging` and the STATUS CALLBACK to `/callbacks/outbound/messaging/status`. The same can be accomplished via the Dashboard API by setting InboundCallbackUrl and OutboundCallbackUrl respectively.
+
+Inbound callbacks are sent notifying you of a received message on a Bandwidth number, this app prints the phone numbers invloved, as well as the text received. Outbound callbacks are status updates for messages sent from a Bandwidth number, this app has a dedicated response for each type of status update.
 # Bandwidth
 
 In order to use the Bandwidth API users need to set up the appropriate application at the [Bandwidth Dashboard](https://dashboard.bandwidth.com/) and create API tokens.
@@ -50,7 +53,9 @@ LOCAL_PORT                           # The port number you wish to run the sampl
 For a detailed introduction to Bandwidth Callbacks see https://dev.bandwidth.com/guides/callbacks/callbacks.html
 
 Below are the callback paths:
-* `/callbacks/outbound/message`
+* `/callbacks/outbound/messaging` For Sending Text Messages
+* `/callbacks/outbound/messaging/status` For Outbound Status Callbacks
+* `/callbacks/inbound/messaging` For Inbound Message Callbacks
 
 ## Ngrok
 
