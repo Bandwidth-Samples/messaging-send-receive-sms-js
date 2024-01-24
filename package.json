@@ -1,16 +1,16 @@
 {
   "name": "messaging-send-receive-sms-js",
   "version": "1.0.0",
-  "description": "Bandwidth sample app sending sms text messages",
-  "main": "app.js",
+  "description": "Bandwidth Sample App for Sending and Receiving SMS Messages",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node app.js"
+    "start": "node index.js"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Bandwidth",
+  "license": "MIT",
   "dependencies": {
-    "@bandwidth/messaging": "^4.0.0",
-    "express": "^4.17.1"
+    "bandwidth-sdk": "0.1.1",
+    "express": "^4.18.1"
   }
 }
