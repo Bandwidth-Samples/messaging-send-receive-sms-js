@@ -11,6 +11,6 @@
   "license": "MIT",
   "dependencies": {
     "bandwidth-sdk": "1.0.0",
-    "express": "^4.20.0"
+    "express": "^4.21.0"
   }
 }
