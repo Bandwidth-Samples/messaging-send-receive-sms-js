@@ -1,0 +1,19 @@
+version: 2
+
+updates:
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 5
+    ignore:
+      - dependency-name: "bandwidth-sdk"
+        update-types:
+          - version-update:semver-minor
+          - version-update:semver-patch
+    groups:
+      dependencies:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "bandwidth-sdk"
